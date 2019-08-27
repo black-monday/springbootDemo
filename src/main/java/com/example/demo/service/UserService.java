@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.bean.User;
 import com.example.demo.dao.UserDao;
+import com.example.demo.dao.UserXmlDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,8 +13,12 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private UserXmlDao UserXmlDao ;
+
     public User selectUserByName(String name) {
-        return userDao.findUserByName(name);
+//        return userDao.findUserByName(name);
+        return UserXmlDao.findUserByName(name);
     }
 
     public List<User> selectAllUser() {
